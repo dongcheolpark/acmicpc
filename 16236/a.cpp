@@ -23,6 +23,10 @@ shark make_shark(int x,int y,int size) {
 	return a;
 }
 
+bool check(shark a) {
+
+}
+
 int arr[20][20];
 
 int main() {
@@ -46,6 +50,13 @@ int main() {
 	while(!q.empty()) {
 		int q_size = q.size();
 		for(int i = 0;i<q_size;i++) {
+			shark tmp = q.front();
+			if(tmp.x < 0 || tmp.y < 0 || tmp.x >=n || tmp.y >= n) {
+				continue;
+			}
+			else if(){
+
+			}
 		}
 		sec++;
 	}
