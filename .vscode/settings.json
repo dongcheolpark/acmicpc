@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"*.py": "python",
-		"utility": "cpp"
+		"utility": "cpp",
+		"vector": "cpp"
 	}
 }
