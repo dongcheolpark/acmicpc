@@ -2,36 +2,30 @@
 #include <algorithm>
 #include <cmath>
 #include <vector>
+#include <queue>
 #include <string>
 #include <stack>
 
 using namespace std;
 
-int arr[100002],n,m;
-
 int main() {
-	cin>>n>>m;
-	int s = 0;
-	for(int i = 0;i<n;i++) {
-		cin>>arr[i];
-	}
-	int res = 1<<21;
-	int i = 0,j = 0,sum = 0;
-	while(1) {
-		if(sum > m)  {
-			sum -= arr[i];
-			i++;
+	int n;
+	cin>>n;
+	queue<pair<int,int>> q;
+	q.push(n,0);
+	while(q.size()) {
+		pair<int,int> tmp = q.top();
+		q.pop();
+		if(tmp == 1) {
+			cout<<tmp.second;
+			break;
 		}
-		else if(sum < m) {
-			sum += arr[j];
-			j++;
+		else if(tmp.first % 3 == 0 && (tmp.first/3) > 0) {
+			q.push(tmp.first/3,tmp.second+1);
 		}
-		else {
-			if(res > i-j) {
-				res = i-j;
-			} 
+		else if(tmp.first % 2 == 0 && (tmp.first/2) > 0) {
+			q.push(tmp.first/2,tmp.second+1);
 		}
 	}
-	cout<<res;
 	return 0;
 }
