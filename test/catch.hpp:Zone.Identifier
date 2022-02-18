@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://github.com/catchorg/Catch2/releases/tag/v2.13.8
+HostUrl=https://objects.githubusercontent.com/github-production-release-asset-2e65be/1062572/36cf792a-945e-48e1-8a31-e52b0bd0195c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220218%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220218T051314Z&X-Amz-Expires=300&X-Amz-Signature=55ec55e6cdde17c489b55ce87c2c6966e861d265b3113be5c396791e4865ba8a&X-Amz-SignedHeaders=host&actor_id=36955431&key_id=0&repo_id=1062572&response-content-disposition=attachment%3B%20filename%3Dcatch.hpp&response-content-type=application%2Foctet-stream
