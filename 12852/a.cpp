@@ -1,36 +1,58 @@
 #include <iostream>
-#include <string>
-#include <list>
-#include <vector>
-
-#include <queue>
-
+#include <algorithm>
 using namespace std;
 
-int main() {
-	cin.tie(NULL);
-	ios::sync_with_stdio(false);
+int before[1000001];
+int dp[1000001];
 
-	int N;
-	cin>>N;
-	bool arr[1000000];
-	queue<pair<list<int>,int>> q;
-	list<int> tmp;
-	tmp.push_back(N);
-	q.push(make_pair(tmp,N));
-	while(1) {
-		auto item = q.front();
-		q.pop();
-		if(item.second == 1) {
-			for(auto item2 : item.first) {
-				cout<<item2<<' ';
+int solve(int N)
+{
+	dp[1] = 0;
+	for (int i = 2; i <= N; i++)
+	{
+		// 3번 연산
+		dp[i] = dp[i - 1] + 1;
+		before[i] = i - 1;
+
+		// 1번 연산
+		if (i % 3 == 0)
+		{
+			if (dp[i] > dp[i / 3] + 1)
+			{
+				dp[i] = dp[i / 3] + 1;
+				before[i] = i / 3;
 			}
+			
 		}
-		auto first = item.first;
-		int second = item.second;
-		if(second)
-		first.push_back(item);
-		q.push();
+
+		// 2번 연산
+		if (i % 2 == 0)
+		{
+			if (dp[i] > dp[i / 2] + 1)
+			{
+				dp[i] = dp[i / 2] + 1;
+				before[i] = i / 2;
+			}
+			
+		}
 	}
+
+	return dp[N];
+}
+
+int main(void)
+{
+	int  X;
+	cin >> X;
+
+	cout << solve(X) << '\n';
+
+	while (true)
+	{
+		cout << X << " ";
+		X = before[X];
+		if (X == 0) break;
+	}
+
 	return 0;
 }
